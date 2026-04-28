@@ -1,0 +1,12 @@
+# Maven
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Generated settings — never commit credentials
+.maven/settings.xml
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
