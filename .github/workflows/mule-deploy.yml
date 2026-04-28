@@ -42,7 +42,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-          cache: maven
+          cache: mavens
 
       - name: Create .maven/settings.xml
         run: |
@@ -60,7 +60,7 @@ jobs:
                <server>
                   <id>anypoint-exchange-v3</id>
                   <username>~~~Client~~~</username>
-                  <password>${anypoint.CONNECTED_APP_ID}~?~${anypoint.CONNECTED_APP_SECRET}</password>
+                  <password>${secrets.CONNECTED_APP_ID}~?~${secrets.CONNECTED_APP_SECRET}</password>
                 </server>
                 
               </servers>
@@ -115,7 +115,7 @@ jobs:
           -DlastMileSecurity=false \
           -DforwardSslSession=false \
           -DgenerateDefaultPublicUrl=true \
-          -DobjectStore.enabled="${{ objectStore-enabled }}" \
+          -DobjectStore.enabled="${{ inputs.objectStore-enabled }}" \
           -DskipDeploymentVerification=false \
           -Denable.analytics=true \
           -Danypoint.clientId="${{ secrets.ANYPOINT_CLIENT_ID }}" \
